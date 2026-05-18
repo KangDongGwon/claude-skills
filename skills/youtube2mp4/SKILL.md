@@ -33,7 +33,7 @@ python3 ~/.claude/skills/youtube2mp4/yt2mp4.py <URL> [options]
 ### Examples
 
 ```bash
-python3 ~/.claude/skills/youtube2mp4/yt2mp4.py "https://youtu.be/nDL3Ch7Nz8c"
+python3 ~/.claude/skills/youtube2mp4/yt2mp4.py "<url>"
 python3 ~/.claude/skills/youtube2mp4/yt2mp4.py "<url>" --res 720 -o ./clips
 python3 ~/.claude/skills/youtube2mp4/yt2mp4.py "<url>" --start 00:30 --end 01:45
 python3 ~/.claude/skills/youtube2mp4/yt2mp4.py "<url>" --audio
