@@ -43,6 +43,15 @@ Copy-Item agents\* "$HOME\.claude\agents\"
   (yt-dlp, ffmpeg)
 - **blender-atom-render** — 구조 파일(traj/xyz)에서 개별 원자 구 렌더 +
   시스템별 레전드 생성. (Blender, ASE, Pillow)
+- **reference-crosscheck** — `.hwp`(바이너리)/`.hwpx`(OWPML)/`.docx` 인용·
+  참고문헌 교차검증. phantom(인용했으나 목록 없음)·orphan·번호 불일치·중복·
+  multiloc 검출 + Tier2 Crossref 실재 검증. 원본 무수정, 주석 사본 + md/JSON
+  리포트. 757줄 엔진 `refcheck.py`. (python-docx, lxml; Tier2는 paper-ref-hunter)
+- **analysis-protocol** — 스펙트럼 peak-fitting/deconvolution 검증 게이트.
+  lmfit 결과를 quant/visual(hard)·sanity(soft)로 검사해 나쁜 fit이 figure·
+  주장으로 새는 걸 차단. NH3-TPD/Py-DRIFTS/TPO/XPS/XRD 범용. (numpy, lmfit)
+- **paper-sections** — IMRAD 섹션(Intro/Methods/Results/Discussion/Outlook)
+  작성 플레이북 + numeric-superscript 인용 포맷 규칙.
 - **paper-style** — 저자 STYLE_PROFILE 로드 또는 경량 AI-ism 정리(humanize).
 - **smart-compact** — 세션 상태를 `.claude/session-state.md`로 저장해
   `/clear` 이후 복구.
@@ -54,6 +63,9 @@ Copy-Item agents\* "$HOME\.claude\agents\"
   논리 결함·과대주장 비평.
 - **paper-style-enforcer** — STYLE_PROFILE 기계적 준수 검사(금지어·문장 길이·
   수사 의문문·hedge 스택·figure 인용 패턴).
+- **paper-ref-hunter** — 논문 레퍼런스 두 모드: HUNT(특정 인용 → Crossref
+  DOI 확정), DISCOVERY(주제 → OpenAlex 후보 랭킹). DOI 날조 금지.
+  `reference-crosscheck`의 Tier2 검증이 이걸 호출한다.
 
 ## 의존성
 
