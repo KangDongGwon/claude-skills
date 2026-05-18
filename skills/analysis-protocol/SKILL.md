@@ -7,14 +7,18 @@ allowed-tools: Read, Bash, Write
 # analysis-protocol — fit validation gate
 
 This is the shareable, self-contained core of a larger experimental-data
-analysis protocol: a **mandatory validator** that decides whether a
-peak-fitting result is trustworthy enough to be turned into a figure or a
-written claim.
+analysis protocol. Two pieces ship here:
 
-> The full protocol also wires a private methodology library (per-technique
-> YAML parameter databases, figure standards, project configs) that is **not
-> included here** — it is workflow-specific. `fit_validator.py` is the
-> reusable engine and works standalone.
+- **`fit_validator.py`** — a mandatory validator that decides whether a
+  peak-fitting result is trustworthy enough to become a figure or a claim.
+- **`METHODOLOGY.md`** — a generic, vendor-neutral methodology reference
+  for 12 catalyst-characterization techniques (XPS, XRD, H2-TPR, NH3-TPD,
+  BET, CO-chemisorption, CO-DRIFTS, GC, Raman, TEM/STEM, TGA, XAS).
+
+> The original protocol also wired a private, workflow-specific methodology
+> library (tuned per-technique parameter databases, figure standards,
+> project configs) that is **deliberately not included** — only the generic
+> engine and methodology reference are shared here.
 
 ## When to use
 
