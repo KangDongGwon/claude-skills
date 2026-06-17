@@ -92,7 +92,9 @@ def render_with_powerpoint(pptx, outdir):
             pass
         pres = app.Presentations.Open(os.path.abspath(pptx), ReadOnly=1, Untitled=0, WithWindow=0)
         for i in range(1, pres.Slides.Count + 1):
-            out = os.path.join(outdir, f"slide_{i:02d}.png")
+            # PowerPoint COM needs a native Windows path (backslashes, drive). A
+            # POSIX/git-bash path like /tmp/x makes Slide.Export fail.
+            out = os.path.normpath(os.path.abspath(os.path.join(outdir, f"slide_{i:02d}.png")))
             pres.Slides(i).Export(out, "PNG", 1920, 1080)
             pngs.append(out)
     finally:
@@ -110,6 +112,7 @@ def main():
         os.path.dirname(os.path.abspath(pptx)),
         "_render_" + os.path.splitext(os.path.basename(pptx))[0],
     )
+    outdir = os.path.normpath(os.path.abspath(outdir))  # native path for COM/soffice
     os.makedirs(outdir, exist_ok=True)
 
     soffice = find_soffice()
