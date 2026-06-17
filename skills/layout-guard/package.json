@@ -1,0 +1,10 @@
+{
+  "name": "layout-guard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Generic overlap/overflow audit gate for HTML, PPTX and composed figures.",
+  "dependencies": {
+    "playwright": "^1.44.0"
+  }
+}
