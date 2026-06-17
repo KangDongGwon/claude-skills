@@ -78,6 +78,11 @@ Copy-Item agents\* "$HOME\.claude\agents\"
 
 ### 프레젠테이션 — Presentation
 
+- **layout-guard** `skill` — HTML·PPTX·matplotlib/PIL figure 전반의 글자/요소
+  겹침·넘침을 막는 범용 가드. 생성 시점 예방 규칙 + 전달 직전 결정론 measure
+  게이트(겹침·overflow 검출) + 안전 자동보정. PPTX는 XML triage → LibreOffice/
+  PowerPoint 렌더 권위 검증. slide-audit(HTML 덱)을 전 매체로 일반화.
+  (Node.js, Playwright, python-pptx)
 - **slide-audit** `skill` — HTML 슬라이드 덱을 Playwright로 PNG 렌더 +
   bounding-rect 진단 + 서브에이전트 시각 검수. 글자 겹침·잘림·오버플로
   검출. (Node.js, Playwright)
@@ -102,7 +107,8 @@ Copy-Item agents\* "$HOME\.claude\agents\"
 ## 의존성
 
 스킬별로 다름 — 위 괄호 표기 참고. 공통적으로 Python 3.9+ 환경을 가정하며,
-`slide-audit`만 Node.js + Playwright가 필요하다.
+`slide-audit`·`layout-guard`가 Node.js + Playwright를 쓴다. `layout-guard`의
+PPTX 검사는 python-pptx(렌더 권위 검증 시 LibreOffice 또는 PowerPoint 추가).
 
 ## 참고
 

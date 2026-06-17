@@ -90,6 +90,11 @@ Use a skill on its own, or let the agent automate it.
 
 ### Presentation
 
+- **layout-guard** `skill` — Universal guard against text/element overlap and
+  overflow across HTML, PPTX, and matplotlib/PIL figures. Generation-time
+  prevention rules + a deterministic pre-delivery measure gate + safe autofix.
+  PPTX uses XML triage → authoritative LibreOffice/PowerPoint render. Generalizes
+  slide-audit (HTML decks) to every medium. (Node.js, Playwright, python-pptx)
 - **slide-audit** `skill` — Render an HTML slide deck to PNGs with
   Playwright, run a bounding-rect diagnostic, and dispatch subagents for
   visual review. Catches text overlap, clipping, and overflow.
@@ -117,7 +122,9 @@ Use a skill on its own, or let the agent automate it.
 ## Dependencies
 
 Per-skill — see the parentheses above. Python 3.9+ is assumed in general;
-only `slide-audit` needs Node.js + Playwright.
+`slide-audit` and `layout-guard` need Node.js + Playwright. layout-guard's
+PPTX checks use python-pptx (plus LibreOffice or PowerPoint for the
+authoritative render).
 
 ## Notes
 
