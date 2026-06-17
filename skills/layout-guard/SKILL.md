@@ -81,7 +81,7 @@ report(hits)                   # 이슈 있으면 보정 후 재측정
   휴리스틱 신호) → **플래그만**. 자동으로 내용을 지우지 않는다(말소 금지).
 
 ### 4. 보고
-자동보정 항목은 `feedback_change_report_with_context` 4축(위치·원인·조치·근거)으로,
+자동보정 항목은 변경 맥락 4축(위치·원인·조치·근거)으로,
 플래그 항목은 위치·증상·추정원인으로 보고. clean이면 한 줄("layout-guard: N scene clean").
 
 ## 한계 (정직 — 실측 검증 결과 반영)
@@ -102,8 +102,8 @@ bbox)를 알 수 없어 pass/fail 게이트가 아니라 **triage(후보 발굴)
   덱서 과탐 → Claude 생성덱(명시 폰트)서만 권장.
 - 정밀 pass/fail이 필요하면 **`render_pptx.py`로 실제 렌더 → PNG → 시각 서브에이전트**가
   권위본. 백엔드: LibreOffice(headless·세션 무위험·우선) → 없으면 PowerPoint COM. **COM은
-  PowerPoint가 이미 떠 있으면 거부**(단일 인스턴스라 Quit 시 사용자 세션이 닫힘 —
-  feedback_hwp_com_unsafe). 렌더 후 slide-audit 시각-서브에이전트 프롬프트를 그대로 적용.
+  PowerPoint가 이미 떠 있으면 거부**(단일 인스턴스라 Quit 시 사용자 세션이 닫힘).
+  렌더 후 slide-audit 시각-서브에이전트 프롬프트를 그대로 적용.
 - 그룹/자동배치 shape는 좌표 미해결로 skip.
 
 **figure** — `savefig` 전 코드 삽입이 정석(렌더러 실측 bbox라 정확). 이미 PNG면 시각 판독만.

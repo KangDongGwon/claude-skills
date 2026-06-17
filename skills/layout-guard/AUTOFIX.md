@@ -30,13 +30,13 @@
 - **내용 삭제가 유일한 해법**일 때. 텍스트/요소를 지우는 보정은 절대 자동 금지
   (deliverable_version_guard: 말소 금지). 분량 자체가 많으면 "슬라이드 분할" 제안.
 - **PPTX shape-overlap** 중 한쪽이라도 사용자가 직접 배치한 흔적(편집됨)이 있으면
-  건드리지 않는다 (feedback_user_edits_interpretation).
+  건드리지 않는다 (사용자가 직접 배치·편집한 흔적이 있으면 보존).
 - **휴리스틱 신호** (PPTX text-overflow의 heuristic=true): 폰트 메트릭 추정이라
   확정 아님 → 플래그만, 자동보정은 명백한 케이스에 한정.
 
 ---
 
-## 보정 보고 양식 (feedback_change_report_with_context 준수)
+## 보정 보고 양식 (변경 맥락 동반)
 
 자동보정한 항목은 short label만 보고하지 말고 **위치 + 원문상태 + 변경후 + 근거**
 4축으로 보고:

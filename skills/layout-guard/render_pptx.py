@@ -14,7 +14,7 @@ Two render backends, preferred in this order:
      Preferred whenever installed.
   2. PowerPoint COM (win32com) — uses the installed PowerPoint. PowerPoint is a
      SINGLE-INSTANCE app, so if the user already has it open, automating + Quit
-     would CLOSE THEIR SESSION (the feedback_hwp_com_unsafe lesson). Therefore
+     would CLOSE THEIR SESSION. Therefore
      this backend ABORTS if PowerPoint is already running. It only spawns/quits
      an instance when none exists.
 

@@ -4,7 +4,7 @@ layout-guard / measure_pptx.py
 
 Deterministic layout audit for .pptx WITHOUT rendering. Reads shape geometry
 straight from the OOXML via python-pptx, so it never opens PowerPoint and is
-safe to run headless (unlike COM automation — see feedback_hwp_com_unsafe).
+safe to run headless (unlike COM automation, which can disturb a live app session).
 
 Three failure classes, mirroring the HTML engine:
 

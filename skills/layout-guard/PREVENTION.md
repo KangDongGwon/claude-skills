@@ -48,7 +48,7 @@
 ## PPTX
 
 > python-pptx는 autofit을 신뢰 불가하게 적용하고, 박스 밖으로 흘러도 경고가 없다.
-> OMML 수식 빈칸 버그까지 겹친다(feedback_pptx_recurring). 그래서 PPTX는 생성 시점
+> OMML 수식 빈칸 버그까지 겹친다. 그래서 PPTX는 생성 시점
 > 규칙이 특히 중요하다.
 
 - **textbox에 autofit 명시**: `tf.word_wrap = True` +
@@ -67,9 +67,9 @@
 
 - matplotlib: `constrained_layout=True` 또는 `fig.tight_layout()`,
   저장은 `bbox_inches='tight'`. 범례는 가능하면 `bbox_to_anchor`로 axes 밖.
-- 범례 위치는 `loc='best'`를 신뢰(feedback_legend_position_rule) — 수직 강제 금지.
-- 라벨은 `transAxes` 상대좌표로 (feedback_figure_label_protocol). offset 누적 주의.
+- 범례 위치는 `loc='best'`를 신뢰 — 수직 강제 금지.
+- 라벨은 `transAxes` 상대좌표로 둔다. offset 누적 주의.
 - PIL compose: 레이아웃 엔진이 없으므로 **그리기 전에 `draw.textbbox()`로 각
   텍스트의 실제 px를 측정**하고 좌표를 잡는다. 좌표를 눈대중으로 박지 말 것
-  (feedback_scheme_workflow: PIL 좌표 실측). 측정한 bbox는 `measure_figure.check_pil`로 교차검사.
-- 코드는 반드시 `.py`로 저장(feedback_code_preservation: compose.py 유실 교훈).
+  (PIL 좌표는 눈대중 말고 실측). 측정한 bbox는 `measure_figure.check_pil`로 교차검사.
+- 재사용 코드는 반드시 `.py`로 저장(인라인 코드 유실 방지).
